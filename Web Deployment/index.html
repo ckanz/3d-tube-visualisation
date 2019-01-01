@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>3D Tube Depth Visualization</title>
+		<script type='text/javascript' src='https://ssl-webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/jquery.min.js'></script>
+		<script type="text/javascript">
+		<!--
+		var unityObjectUrl = "http://webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/UnityObject2.js";
+		if (document.location.protocol == 'https:')
+			unityObjectUrl = unityObjectUrl.replace("http://", "https://ssl-");
+		document.write('<script type="text\/javascript" src="' + unityObjectUrl + '"><\/script>');
+		-->
+		</script>
+		<script type="text/javascript">
+		<!--
+			var config = {
+				width: 960, 
+				height: 600,
+				params: { enableDebugging:"0" }
+				
+			};
+			config.params["disableContextMenu"] = true;
+			var u = new UnityObject2(config);
+			
+			jQuery(function() {
+
+				var $missingScreen = jQuery("#unityPlayer").find(".missing");
+				var $brokenScreen = jQuery("#unityPlayer").find(".broken");
+				$missingScreen.hide();
+				$brokenScreen.hide();
+
+				u.observeProgress(function (progress) {
+					switch(progress.pluginStatus) {
+						case "broken":
+							$brokenScreen.find("a").click(function (e) {
+								e.stopPropagation();
+								e.preventDefault();
+								u.installPlugin();
+								return false;
+							});
+							$brokenScreen.show();
+						break;
+						case "missing":
+							$missingScreen.find("a").click(function (e) {
+								e.stopPropagation();
+								e.preventDefault();
+								u.installPlugin();
+								return false;
+							});
+							$missingScreen.show();
+						break;
+						case "installed":
+							$missingScreen.remove();
+						break;
+						case "first":
+						break;
+					}
+				});
+				u.initPlugin(jQuery("#unityPlayer")[0], "Web Deployment.unity3d");
+			});
+		-->
+		</script>
+		<style type="text/css">
+		<!--
+
+		@font-face
+		{
+		font-family: font;
+		src: url(London-Tube.ttf);
+		font-size: 54px;
+		}
+
+		body {
+			font-family: font;
+			font-size: 12px;
+			background-image: url('b.png');
+			background-repeat:no-repeat;
+			color: black;
+			text-align: center;
+		}
+		a:link, a:visited {
+			color: #000;
+		}
+		a:active, a:hover {
+			color: #666;
+		}
+		p.header {
+			font-size: small;
+		}
+		p.header span {
+			font-weight: bold;
+		}
+		p.footer {
+			font-size: x-small;
+		}
+		div.content {
+			margin: auto;
+			width: 960px;
+		}
+		div.broken,
+		div.missing {
+			margin: auto;
+			position: relative;
+			top: 50%;
+			width: 193px;
+		}
+		div.broken a,
+		div.missing a {
+			height: 63px;
+			position: relative;
+			top: -31px;
+		}
+		div.broken img,
+		div.missing img {
+			border-width: 0px;
+		}
+		div.broken {
+			display: none;
+		}
+		div#unityPlayer {
+			cursor: default;
+			height: 600px;
+			width: 960px;
+			margin: auto;
+			border-style: solid;
+		}
+		-->
+		</style>
+	</head>
+	<body>
+
+	<p><h1>3D London Underground Visualisation</h1></p>
+
+		<div class="content">
+			<div id="unityPlayer">
+				<div class="missing">
+					<a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now!">
+						<img alt="Unity Web Player. Install now!" src="http://webplayer.unity3d.com/installation/getunity.png" width="193" height="63" />
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<p><h3>3D map of the London Underground generated with each station's GPS data and depth/height below/above ground level</h3></p>
+		<p style="font-style:italic">Depth and Height scaled to show differences - Height: above sea level; Depth: height above ordnance datum;</p>
+		<p style="font-style:italic">Transparent circles represent the station's "busyness" (Amount of annual entries and exits)</p>
+		<p>_</p>
+		<p>Use right mouse button to look around</p>
+		<p>Use mouse wheel (or W and S key) to zoom in/out</p>
+		<p>Use arrow keys to move around</p>
+
+
+		<p class="footer">&laquo; created with <a href="http://unity3d.com/unity/" title="Go to unity3d.com" target="blank">Unity</a> by <a href="http://www.clemens-anzmann.com" title="Go to clemens-anzmann.com" target="blank">Clemens Anzmann</a> &raquo;</p>
+		<p class="footer">&laquo;<a href="http://www.clker.com/clipart-london-skyline-isolated.html" target="blank">Background</a> / <a href="http://www.ianvisits.co.uk/blog/2011/07/01/how-deep-is-every-tube-station-on-the-underground/" target="blank">Data</a> &raquo;</p>
+	</body>
+</html>
