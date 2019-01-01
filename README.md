@@ -17,6 +17,8 @@ The data comes from [this source](http://www.ianvisits.co.uk/blog/2011/07/01/how
 
 ### Visualisation
 
+![vis](https://github.com/ckanz/3d-tube-visualisation/blob/master/screenshot2.png?raw=true)
+
 All London Underground stations are arranged according to their GPS coordinates. The red bubbles in the scene resemble the station's entrance, the blue represent the station underground. By mapping the position of the Z axis of each object to the depth and height values in the data file, one receives a 3-dimensional map giving an overview of the entire vertical landscape of the London subway system throughout the whole London area.
 Shown are each station's entry above normal and the depth of the station itself below its entry.
 
@@ -38,3 +40,5 @@ The project took part in the Kantar Information is Beautiful Awards 2013:
 http://www.informationisbeautifulawards.com/showcase/310-3d-london-underground-visualization
 
 It has been implemented after working hours at the DataShaka office in Soho, London.
+
+![dev](https://github.com/ckanz/3d-tube-visualisation/blob/master/screenshot1.png?raw=true)
