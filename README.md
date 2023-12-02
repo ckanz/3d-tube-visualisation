@@ -32,9 +32,7 @@ One can select important stations by name on the menu above, as well as skip thr
 
 To add more context, the color of the London Underground lines can be switched on, as well as a visualisation of the busyness of each station (according to annual entries and exits).
 
-### Deployment
-
-The project is hosted on [http://3d-tube.clemens-anzmann.com/](http://3d-tube.clemens-anzmann.com/). Unfortunately, Chrome browsers are not supported with this version of the Unity plugin and the project runs best using Firefox or Safari. It is required to install the Unity browser plugin to view the project.
+---
 
 The project took part in the Kantar Information is Beautiful Awards 2013:
 http://www.informationisbeautifulawards.com/showcase/310-3d-london-underground-visualization
